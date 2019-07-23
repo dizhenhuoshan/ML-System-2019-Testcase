@@ -14,7 +14,7 @@ tests = [
     ["Adam optimizer",        "8_adam_optimizer.py"],
     ["CNN Check",       "9_cnn_check.py"],
     ["CNN GD",       "10_cnn_gd.py"],
-    ["CNN Adam",       "11_cnn_adam.py"]
+    ["CNN Adam with Dropout",       "11_cnn_adam.py"]
 ]
 
 def main(model_name):
