@@ -1,5 +1,5 @@
 # About
-testcase for [PPCA 2019](https://acm.sjtu.edu.cn/wiki/PPCA_2019) deep learning system
+testcase for [PPCA 2019](https://acm.sjtu.edu.cn/wiki/PPCA_2019) machine learning system
 
 # Test Description
 | no |    name     | test item |
