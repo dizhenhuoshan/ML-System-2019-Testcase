@@ -26,7 +26,7 @@ W_conv1 = weight_variable([5, 5, 1, 32])
 b_conv1 = bias_variable([32])
 x_image = tf.reshape(x, [-1, 28, 28, 1])
 
-h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)
+h_conv1 = tf.nn.relu(conv2d(x_image / 20.0, W_conv1) + b_conv1)
 h_pool1 = max_pool_2x2(h_conv1)
 
 # second layer
@@ -67,8 +67,8 @@ mnist = input_data.read_data_sets("FMNIST/", one_hot=True)
 
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
-    for i in range(1000):
-        batch = mnist.train.next_batch(256)
+    for i in range(200):
+        batch = mnist.train.next_batch(500)
         if i % 50 == 0:
             train_accuracy = accuracy.eval(feed_dict = { x: batch[0],
                                            y_: batch[1], keep_prob: 1.0})
@@ -76,9 +76,9 @@ with tf.Session() as sess:
 
         train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
 
-    batch = mnist.test.next_batch(50000)
+    batch = mnist.test.next_batch(10000)
     ans = accuracy.eval(feed_dict={ x:batch[0],
                                     y_: batch[1], keep_prob: 1.0})
     print('test accuracy %g' % ans)
-    assert ans > 0.87
+    assert ans > 0.72
 
