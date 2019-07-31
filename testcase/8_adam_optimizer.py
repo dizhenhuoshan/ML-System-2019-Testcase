@@ -6,7 +6,7 @@ import your_model as tf
 x = tf.placeholder(tf.float32, [None, 784])
 W = tf.Variable(tf.zeros([784, 10]))
 b = tf.Variable(tf.zeros([10]))
-y = tf.nn.softmax(tf.matmul(x, W) + b)
+y = tf.nn.softmax(tf.matmul(x / 100.0, W) + b)
 
 # define loss and optimizer
 y_ = tf.placeholder(tf.float32, [None, 10])
